@@ -50,7 +50,7 @@ eps = st.sidebar.number_input('Eps', step=0.1, min_value=0.0, max_value=2500.0, 
 min_samples = st.sidebar.number_input('MinPts', step=1, min_value=1, max_value=30, value=10)
 
 s = not_inf = ~np.isinf(dist_matrix) 
-col1, col2 = st.sidebar.columns([3, 1])
+col1, col2 = st.sidebar.columns([4, 1])
 col1.write('Distance goes from '+str(format(np.min(dist_matrix), '.2f'))+' to '+str(format(np.max(dist_matrix[s]), '.2f')))
 
 if col2.button('Run'):
