@@ -40,7 +40,7 @@ class DBscan():
                 neighbors = self.get_neighbors(i)
                 if len(neighbors) >= self.min_samples:
                     self.cluster_labels[i] = cluster_label 
-                    self.expand_cluster(i, neighbors, cluster_label)
+                    self.expand_cluster(neighbors, cluster_label)
                     cluster_label += 1
         return self.cluster_labels 
 
@@ -51,7 +51,7 @@ class DBscan():
                 neighbors.append(j)
         return neighbors
 
-    def expand_cluster(self, i, neighbors, cluster_label):
+    def expand_cluster(self, neighbors, cluster_label):
         shit = 0
         for j in neighbors:
             if self.cluster_labels[j] == -1:

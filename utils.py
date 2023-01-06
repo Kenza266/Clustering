@@ -76,12 +76,12 @@ def accuracy(actual_labels, predicted_labels):
 
 def plot_graphs(results, title, cmap='Spectral'):
     fig = plt.figure() 
-    fig.set_size_inches(18, 4)
+    fig.set_size_inches(10, 9)
 
     X = results['eps']
     Y = results['min_samples']
 
-    ax = fig.add_subplot(1, 4, 1, projection='3d')
+    ax = fig.add_subplot(2, 2, 1, projection='3d')
     Z = results['accuracy']
     ax.scatter(X, Y, Z, c=Z, cmap=cmap)
     ax.set_xlabel('Eps')
@@ -89,7 +89,7 @@ def plot_graphs(results, title, cmap='Spectral'):
     ax.set_zlabel('Accuracy')
     ax.set_title('Accuracy')
 
-    ax = fig.add_subplot(1, 4, 2, projection='3d')
+    ax = fig.add_subplot(2, 2, 2, projection='3d')
     Z = results['score']
     ax.scatter(X, Y, Z, c=Z, cmap=cmap)
     ax.set_xlabel('Eps')
@@ -97,7 +97,7 @@ def plot_graphs(results, title, cmap='Spectral'):
     ax.set_zlabel('Score')
     ax.set_title('Adjusted Rand Score')
 
-    ax = fig.add_subplot(1, 4, 3, projection='3d')
+    ax = fig.add_subplot(2, 2, 3, projection='3d')
     Z = results['noise']
     ax.scatter(X, Y, Z, c=Z, cmap=cmap)
     ax.set_xlabel('Eps')
@@ -105,7 +105,7 @@ def plot_graphs(results, title, cmap='Spectral'):
     ax.set_zlabel('#Noise')
     ax.set_title('Number of noise points')
 
-    ax = fig.add_subplot(1, 4, 4, projection='3d')
+    ax = fig.add_subplot(2, 2, 4, projection='3d')
     Z = results['nb_clusters']
     ax.scatter(X, Y, Z, c=Z, cmap=cmap)
     ax.set_xlabel('Eps')
@@ -113,6 +113,6 @@ def plot_graphs(results, title, cmap='Spectral'):
     ax.set_zlabel('#Clusters')
     ax.set_title('Number of Clusters')
 
-    fig.text(0.5, 0.01, title, ha='center', fontsize=13)
+    fig.text(0.5, 0.05, title, ha='center', fontsize=13)
     plt.show()
     
